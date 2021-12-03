@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Darken",
@@ -12,6 +13,9 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "express": "^4.17.1",
     "express-useragent": "^1.0.15"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "keywords": [
     "heroku"
