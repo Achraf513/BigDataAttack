@@ -1,0 +1,62 @@
+[
+  {
+    "browser": "FireFox",
+    "version": "45.0.4664.45",
+    "os": "Windows 8.0",
+    "platform": "Microsoft Windows",
+    "ip": "0ebc:fcd5:c9ab:0d8d:3227:0037:e69d:1a1d",
+    "req": "/",
+    "protocol": "https",
+    "timestamp": 1638051508578
+  },
+  {
+    "browser": "Chrome",
+    "version": "96.0.0445.33",
+    "os": "Ubuntu",
+    "platform": "Linux",
+    "ip": "eb67:f53c:aa8a:4986:a98e:39fd:35d3:91a1",
+    "req": "/content",
+    "protocol": "http",
+    "timestamp": 1638051527697
+  },
+  {
+    "browser": "Edge",
+    "version": "13.0.2264.21",
+    "os": "Windows 10.0",
+    "platform": "Microsoft Windows",
+    "ip": "::1",
+    "req": "/user",
+    "protocol": "https",
+    "timestamp": 1638051560522
+  },
+  {
+    "browser": "Chrome",
+    "version": "96.0.4664.45",
+    "os": "Centos 8.0",
+    "platform": "Linux",
+    "ip": "2f8d:c699:a46f:f7b8:a812:5868:ba4c:c8c8",
+    "req": "/admin",
+    "protocol": "http",
+    "timestamp": 1638051560937
+  },
+  {
+    "browser": "Chrome",
+    "version": "65.0.1123.45",
+    "os": "Windows 10.0",
+    "platform": "Microsoft Windows",
+    "ip": "::1",
+    "req": "/data",
+    "protocol": "http",
+    "timestamp": 1638051561371
+  },
+  {
+    "browser": "Chrome",
+    "version": "96.0.4664.45",
+    "os": "Windows 10.0",
+    "platform": "Microsoft Windows",
+    "ip": "::1",
+    "req": "/data",
+    "protocol": "http",
+    "timestamp": 1638051561770
+  }
+]
