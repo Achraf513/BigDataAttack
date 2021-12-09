@@ -1,4 +1,5 @@
 const express = require("express");
+const { spawn } = require('child_process');
 var fs = require('fs');
 const app = express();
 app.use(express.static("./public"));
@@ -14,8 +15,7 @@ fs.readFile('./data.json', 'utf8', function (err, stuff) {
     userData = JSON.parse(stuff);
 });
 
-
-app.use(function (req, res, next) {
+async function collectData(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
     const timestamp = (new Date()).getTime();
     useragent = {
@@ -28,15 +28,50 @@ app.use(function (req, res, next) {
         protocol: req.protocol,
         timestamp: timestamp
     }
-    userData.push(useragent);
-    next();
-});
+    return await checkForAnomaly(useragent, res)
+}
 
+app.get("/myAccount", (req, res) => {
+    res.sendFile("myAccount.html", { root: __dirname + "/public" });
+    collectData(req);
+})
+app.get("/support", (req, res) => {
+    res.sendFile("support.html", { root: __dirname + "/public" });
+    collectData(req);
+})
+app.get("/about", (req, res) => {
+    res.sendFile("About.html", { root: __dirname + "/public" });
+    collectData(req);
+})
 app.get("/", (req, res) => {
-    res.sendFile("./public/index.html")
+    res.sendFile("index.html", { root: __dirname + "/public" });
+    collectData(req);
+})
+app.get("/dataLast", (req, res) => {
+    res.send(JSON.stringify(userData[userData.length - 1]));
+})
+var routes = ["/myAccount", "/support", "/"]
+
+app.all('*', function (req, res) {
+    if (req.url != "/favicon.ico") collectData(req, res)
+    if (!routes.includes(req.url)) {
+        res.sendFile('niceTry.html', { root: __dirname + "/public" });
+    }
 })
 
-app.get("/data", (req, res) => {
-    res.send(userData)
-})
 
+async function checkForAnomaly(json, res) {
+    var dataToSend
+    const python = spawn('python', ['model.py', JSON.stringify(json)]);
+    python.stdout.on('data', function (data) {
+        dataToSend = data.toString();
+        dataToSend = dataToSend.split(":")[1]
+    });
+    python.on('close', (code) => {
+        if (dataToSend?.trim() != "True") {
+            userData.push(json)
+            let data = JSON.stringify(userData);
+            fs.writeFileSync('data.json', data);
+        }
+    });
+}

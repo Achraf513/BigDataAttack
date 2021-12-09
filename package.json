@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "easyqrcodejs": "^4.4.7",
     "express": "^4.17.1",
-    "express-useragent": "^1.0.15"
+    "express-useragent": "^1.0.15",
+    "jquery": "^3.6.0"
   },
   "engines": {
     "node": "14.x"

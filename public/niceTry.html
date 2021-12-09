@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="./homeStyle.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center">
+
+        <h1>Nice try!</h1>
+        <p>Of course this won't be display to the user in a normal website case, but still ! this malicuos act will be
+            recorded and saved as possible threat</p>
+    </div>
+    <div class="dataSectionDisplay">
+        <div style="color: chocolate;">{</div>
+        <div id="getbrowser"></div>
+        <div id="getversion"></div>
+        <div id="getos"></div>
+        <div id="getplatform"></div>
+        <div id="getip"></div>
+        <div id="getreq"></div>
+        <div id="getprotocol"></div>
+        <div id="gettimestamp"></div>
+        <div style="color: chocolate;">}</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        function loadRequest() {
+            fetch('http://localhost:3000/dataLast', { method: 'Get', mode: 'cors' }).then((response) =>
+                response.json()
+            ).then((data) => {
+                console.log(data);
+                createElement("Browser : ",data.browser,"getbrowser")
+                createElement("Version : ",data.version,"getversion")
+                createElement("OS : ",data.os,"getos")
+                createElement("Platform : ",data.platform,"getplatform")
+                createElement("IPV6 : ",data.ip,"getip")
+                var fullUrl = window.location.href.split("/")[3];
+                createElement("Request_url : ","/"+fullUrl,"getreq")
+                createElement("Protocol : ",data.protocol,"getprotocol")
+                createElement("Timestamp : ",data.timestamp,"gettimestamp")
+            });
+        }
+        function createElement(name, data,elementName){
+            nameDiv = document.createElement("div");
+            nameDiv.classList.add("dataDisplayName");
+            nameDiv.innerHTML = name
+            dataDiv = document.createElement("div");
+            dataDiv.classList.add("dataDisplayData");
+            dataDiv.innerHTML = data
+            console.log( document.getElementById(elementName))
+            document.getElementById(elementName).appendChild(nameDiv)
+            document.getElementById(elementName).appendChild(dataDiv)
+        }
+        loadRequest();
+    </script>
+</body>
+
+</html>

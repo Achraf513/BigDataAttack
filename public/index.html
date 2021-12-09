@@ -2,14 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrlAttack</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="./homeStyle.css" rel="stylesheet" />
 </head>
 
 <body>
-    <h1>Many other websites uses this methode to collect your data</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand active">UrlAttack</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link" href="http://localhost:3000/myAccount">Profile <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/about">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/support">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Services-->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <br>
+          <br>
+          <br>
+          <div class="text-center">
+            <h2 class="section-heading text-uppercase">Semantic Url Attacks</h2>
+            <p class="section-subheading text-muted">In a semantic URL attack, a client manually adjusts the parameters
+              of
+              its request by maintaining the URL's syntax but altering its semantic meaning. </p>
+            <h6 class="section-subheading text-muted">So what if a website is not that secured, and it does not
+              implement
+              good authentication and authorization solutions ? </h6>
+            <p class="section-subheading text-muted">you guessed it, an attacker can gain full access to private and
+              confidential data, which has never been displayed to the outside world. </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="imgmdcontainer"> <img src="./assets/data.png" class="img-md mb-4" alt="profile image"></div>
+        </div>
+      </div>
+      <br><br><br>
+      <div class="row">
+        <div class="col-6">
+          <div class="imglbcontainer"> <img src="./assets/script.png" class="img-lg mb-4" alt="profile image"></div>
+        </div>
+        <div class="col-6">
+          <br>
+
+          <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Solution ?</h2>
+            <p class="section-subheading text-muted">our solution is entirely based on the fact that the action of
+              manually adjusting the parameters of a request's URL, is considered as a malicious behavior</p>
+            <h6 class="section-subheading text-muted">The website will be collecting every requests data, including ip
+              address, browser, version, OS etc .. and more importantly the URL route, the rest of the data is used to
+              track back the attacker</h6>
+
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="imgcontainer"> <img src="./assets/anomaly.png" class="img mb-4" alt="profile image">
+        <div class="text-center stuffOver">
+          <p class="section-subheading stuffoverText">We developed an AI model based on anomaly detection, in order to
+            study the behavior of each request,
+            understand the normal routes of a website ( the solution is dynamic ) and as a final step provides
+            decisions to the routing system of the website ( attack or normal behavior )</p>
+        </div>
+      </div>
+  </section>
 </body>
 
 </html>
